@@ -1,7 +1,7 @@
-export type RouteStackParamList = {
+export type RoutesParamList = {
   Home: undefined;
   Map: undefined;
   Restaurants: undefined;
-  Shops: undefined;
+  Stores: undefined;
 };
 //fix navigate('')
