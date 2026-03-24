@@ -1,21 +1,48 @@
-import { View, Text, Pressable } from "react-native";
+import { View, Text, Pressable, PressableStateCallbackType   } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { RoutesParamList } from "@/@types/navigation";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { NavigationProps } from "@/@types/navigation";
+import {Store, ChefHat, Clapperboard, Ticket, Map} from "lucide-react";
+import {styles} from "./styles"
 
-type NavigationProps = NativeStackNavigationProp<RoutesParamList>;
-
-// explicando do porque criei este props: se eu nao nao puxar os props nativos do react navigator
-//  e adicionar os meus componentes na tipagem ele fica deixando um "highlight"
-//  de erro de tipagem pelo .navigate() ser um tipo que naturalmente nao recebe parâmetro
 
 export default function Home() {
   const route = useNavigation<NavigationProps>();
   return (
-    <View>
-      <Text>Tela inicial</Text>
-      <Pressable onPress={() => route.navigate("Stores")}>
-        <Text>Stores</Text>
+    <View style={styles.container}>
+      <Pressable style ={({pressed}: PressableStateCallbackType)=>[
+        styles.btn,
+        {backgroundColor: pressed ? "#E3E3E3" : "FFF"}
+      ]} onPress={() => route.navigate("Stores")}>
+        <Store/>
+        <Text style = { styles.btnText}>Stores</Text>
+      </Pressable>
+      <Pressable style ={({pressed}: PressableStateCallbackType)=>[
+        styles.btn,
+        {backgroundColor: pressed ? "#E3E3E3" : "FFF"}
+      ]} onPress={() => route.navigate("Promo")}>
+        <Ticket/>
+        <Text style = { styles.btnText}>Promo</Text>
+      </Pressable>
+      <Pressable style ={({pressed}: PressableStateCallbackType)=>[
+        styles.btn,
+        {backgroundColor: pressed ? "#E3E3E3" : "FFF"}
+      ]} onPress={() => route.navigate("Cine")}>
+        <Clapperboard/>
+        <Text style = { styles.btnText}>Cine</Text>
+      </Pressable>
+      <Pressable style ={({pressed}: PressableStateCallbackType)=>[
+        styles.btn,
+        {backgroundColor: pressed ? "#E3E3E3" : "FFF"}
+      ]} onPress={() => route.navigate("Restaurants")}>
+        <ChefHat/>
+        <Text style = { styles.btnText}>Restaurants</Text>
+      </Pressable>
+      <Pressable style ={({pressed}: PressableStateCallbackType)=>[
+        styles.btn,
+        {backgroundColor: pressed ? "#E3E3E3" : "FFF"}
+      ]} onPress={() => route.navigate("Map")}>
+        <Map/>
+        <Text style = { styles.btnText}>Map</Text>
       </Pressable>
     </View>
   );
