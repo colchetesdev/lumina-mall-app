@@ -11,10 +11,10 @@ import {
 } from "lucide-react";
 
 type HeaderProps = {
-  title: string;
+  title: string; 
 };
 
-const routeIcons: Record<string, LucideIcon> = {
+const routeIcons: Record<string, LucideIcon> = { //tipo de objetos comparando a rota com o icone do lucide;
   Home: House,
   Stores: Store,
   Map: Map,
@@ -29,7 +29,7 @@ export default function Header(props: HeaderProps) {
     <View style={styles.container}>
       <Image style={styles.image} source={require("^/logo.png")} />
       <View style={styles.routeContainer}>
-        {Icon && <Icon style={styles.icon} />}
+        {Icon && <Icon style={styles.icon} /> /* apenas se Icon existir ele vai rendeerizar o icone */ } 
         <Text style={styles.routeName}>{props.title}</Text>
       </View>
     </View>

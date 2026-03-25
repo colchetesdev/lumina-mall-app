@@ -6,5 +6,8 @@ export const styles = StyleSheet.create({
         borderRadius: 64,
         padding: 8,
         width: 40,        
+    },
+    container:{
+        marginBottom: 12,
     }
 })

@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     btn: {
         flexDirection: "row",
         height: 48,
-        width: 160,
+        width: 176,
         display: "flex",
         justifyContent: "center", 
         alignItems: "center",
